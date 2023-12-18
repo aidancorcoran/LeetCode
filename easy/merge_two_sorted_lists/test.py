@@ -18,7 +18,7 @@ solutionObj = Solution()
 
 newList = solutionObj.mergeTwoLists(headlinkedList1, headlinkedList4)
 
-while newList.next != None:
+while newList:
     print(newList.val)
 
     newList = newList.next
