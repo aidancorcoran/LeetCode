@@ -38,4 +38,5 @@ class Solution:
     def lengthOfLastWord(self, s: str) -> int:
         string_array = s.split()
 
-        print(string_array)
+        # We want to return the length of the final word in the string array, which is len(array) -1
+        return len(string_array[len(string_array) - 1])  
