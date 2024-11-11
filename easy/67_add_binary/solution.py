@@ -23,13 +23,24 @@
 
 # We need to check each number backwards, if they are both 1's the result at that index is 0 and carry is 1
 # Can build a string and then reverse it
-
+# 111
+#  11
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
         a_index = len(a) - 1
         b_index = len(b) - 1
         carry = 0
         sum = []
-        while a_index >= 0 or b_index >= 0:
-            if a[a_index] == 1 and b[b_index] == 1 and carry == 1:
+        while a_index >= 0 or b_index >= 0 or carry:
+            value = carry
+            if a_index >= 0:
+                value += int(a[a_index])
+                a_index -= 1
+            if b_index >= 0:
+                value += int(b[b_index])
+                b_index -= 1
+            sum.append(str(value % 2))
+            carry = value // 2
+        return ''.join(sum[::-1])
+
                 
