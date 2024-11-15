@@ -31,12 +31,35 @@
         #     2      1
         #  1    0  1   nul
 class Tree:
-    def __init__(self) -> None:
-        self.left = None
-        self.right = None
-        self.data = None
-
+    def __init__(self, value) -> None:
+        self.value = value
+        self.children = []
+    def addChild(self, child_node):
+        self.children.append(child_node)
+    def possibleWays(self):
+        count = 0
+        for child in self.children:
+            if child.value == 0:
+                count += 1
+        return count
+    def display(self, level=0):
+        print("  " * level + str(self.value))
+        for child in self.children:
+            child.display(level + 1)
 
 class Solution:
     def climbStairs(self, n: int) -> int:
-        
+        rootStep = Tree(n)
+        n_1 = n
+        n_2 = n
+        while n_1 and n_2 < 0:
+            child_n_1 = Tree(n_1 - 1)
+            child_n_2 = Tree(n_2 - 2)
+            rootStep.addChild(child_n_1)
+            rootStep.addChild(child_n_2)
+
+            n_1 -= 1
+            n_2 -= 2
+        rootStep.display()
+        return rootStep.possibleWays()
+            
