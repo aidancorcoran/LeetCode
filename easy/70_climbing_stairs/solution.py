@@ -18,3 +18,25 @@
 # 1. 1 step + 1 step + 1 step
 # 2. 1 step + 2 steps
 # 3. 2 steps + 1 step
+# ---------------------------------------------------------------------------------------
+# First thoughts:
+# To reach the nth step your previous step could by (n-2) or (n-1)
+#              n
+        #    n-1   n-2
+        # n-1  n-2  n-1 n-2
+# Seems like you can break it down to a binary tree
+
+# n = 3
+#               3
+        #     2      1
+        #  1    0  1   nul
+class Tree:
+    def __init__(self) -> None:
+        self.left = None
+        self.right = None
+        self.data = None
+
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        
