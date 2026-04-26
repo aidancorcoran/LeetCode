@@ -11,8 +11,6 @@ class Solution:
         return next_guess.__floor__()
 
 
-4
-
 
 
 if __name__ == "__main__":
